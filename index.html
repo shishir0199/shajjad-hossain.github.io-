@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Md Shajjad Hossain | Relationship Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --secondary: #1e3a8a;
+      --accent: #2563eb;
+      --text: #334155;
+      --text-light: #64748b;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+    }
+
+    .brand-logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4rem 1.5rem;
+      text-align: center;
+      background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+    }
+
+    .hero h1 {
+      font-size: 2.75rem;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+
+    .hero h2 {
+      font-size: 1.25rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto 2rem;
+      color: var(--text-light);
+      font-size: 1.05rem;
+    }
+
+    .contact-chips {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      color: var(--text);
+    }
+
+    /* Section Headings */
+    .section-title {
+      font-size: 1.75rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* Timeline / Cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+    }
+
+    .card-meta {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .card-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    .card-body {
+      font-size: 0.925rem;
+      color: var(--text);
+    }
+
+    /* List badges */
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .badge {
+      background: #eff6ff;
+      color: var(--accent);
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2.5rem 1rem;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.1rem;
+      }
+      .nav-container {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      nav a {
+        margin: 0 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand-logo">Md Shajjad Hossain</a>
+      <nav>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#certifications">Development</a>
+        <a href="#skills">Competencies</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Md Shajjad Hossain</h1>
+    <h2>Relationship Manager | Medium Business | Commercial Banking</h2>
+    <p>
+      Results-driven commercial banking professional with extensive experience in corporate relationship management, business portfolio growth, and structured credit appraisal across key commercial hubs.
+    </p>
+    <div class="contact-chips">
+      <span class="chip">📍 Narsingdi, Bangladesh</span>
+      <span class="chip">💼 BRAC Bank PLC</span>
+      <span class="chip">🌐 English, Bangla, Hindi</span>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- Professional Experience -->
+    <section id="experience">
+      <h2 class="section-title">Professional Experience</h2>
+      <div class="grid">
+        
+        <div class="card">
+          <div class="card-meta">August 2016 — Present</div>
+          <h3 class="card-title">Relationship Manager</h3>
+          <div class="card-subtitle">BRAC Bank PLC · Medium Business</div>
+          <p class="card-body">
+            Overseeing credit appraisal, client relationship growth, and financial portfolio management for commercial clients. Honored with internal distinctions including <strong>Hero of the Month</strong> (Jun 2023, Feb 2024) and <strong>Hero of the Quarter</strong> (2024).
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-meta">October 2014 — August 2016</div>
+          <h3 class="card-title">Senior Trainee Officer</h3>
+          <div class="card-subtitle">IDLC Finance Ltd.</div>
+          <p class="card-body">
+            Gained foundational expertise in SME asset financing, financial analysis, risk verification, and customer portfolio assessment.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-meta">2011 — 2012</div>
+          <h3 class="card-title">Manager</h3>
+          <div class="card-subtitle">Rimu Fabrics</div>
+          <p class="card-body">
+            Handled business operations, vendor coordination, accounts, and client relationship management within the textile trading sector.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <h2 class="section-title">Academic Background</h2>
+      <div class="grid">
+        
+        <div class="card">
+          <div class="card-meta">National University</div>
+          <h3 class="card-title">Master of Business Studies (MBS)</h3>
+          <div class="card-subtitle">Narsingdi Govt. College</div>
+          <p class="card-body">Specialization: <strong>Accounting</strong></p>
+        </div>
+
+        <div class="card">
+          <div class="card-meta">National University</div>
+          <h3 class="card-title">Bachelor of Business Studies (BBS)</h3>
+          <div class="card-subtitle">Narsingdi Govt. College</div>
+          <p class="card-body">Specialization: <strong>Accounting</strong></p>
+        </div>
+
+        <div class="card">
+          <div class="card-meta">Secondary & Higher Secondary</div>
+          <h3 class="card-title">Foundational Education</h3>
+          <div class="card-subtitle">Business Studies</div>
+          <p class="card-body">
+            • HSC: Narsingdi Govt. College<br>
+            • SSC: Brahmondi K.K.M Govt. High School
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Executive Training & Professional Development -->
+    <section id="certifications">
+      <h2 class="section-title">Executive Training & Certifications</h2>
+      <div class="grid">
+        
+        <div class="card">
+          <div class="card-meta">Executive Leadership</div>
+          <h3 class="card-title">The Leadership Breakthrough</h3>
+          <div class="card-subtitle">Execudemy, USA</div>
+          <p class="card-body">Advanced executive decision-making, strategic problem solving, and people leadership.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-meta">Executive Management Programs</div>
+          <h3 class="card-title">Corporate Governance & Brand Management</h3>
+          <div class="card-subtitle">Institute of Business Administration (IBA), University of Dhaka</div>
+          <p class="card-body">Specialized management development training focusing on corporate standards, risk governance, and brand equity.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-meta">Professional Development</div>
+          <h3 class="card-title">Emotional Intelligence for Career Success</h3>
+          <div class="card-subtitle">Lead Academy</div>
+          <p class="card-body">Strengthening stakeholder negotiation, relationship management, and workplace empathy.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Core Competencies & Skills -->
+    <section id="skills">
+      <h2 class="section-title">Skills & Competencies</h2>
+      <div class="grid">
+        <div class="card">
+          <h3 class="card-title">Banking & Financial Expertise</h3>
+          <ul class="badge-list">
+            <li class="badge">Commercial Credit Appraisal</li>
+            <li class="badge">Portfolio Risk Management</li>
+            <li class="badge">Client Acquisition</li>
+            <li class="badge">Textile Sector Financing</li>
+            <li class="badge">Working Capital Solutions</li>
+            <li class="badge">Financial Statement Analysis</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Key Strengths & Operations</h3>
+          <ul class="badge-list">
+            <li class="badge">Corporate Program Organizing</li>
+            <li class="badge">Stakeholder Negotiation</li>
+            <li class="badge">Cross-Functional Leadership</li>
+            <li class="badge">Business Correspondence</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Md Shajjad Hossain. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
